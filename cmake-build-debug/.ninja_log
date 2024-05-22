@@ -1,0 +1,14 @@
+# ninja log v5
+1	158	1716415439645493721	CMakeFiles/LinkedListAnimation.dir/Node.cpp.o	9b59bf37e9eb1614
+0	480	1716415439966705536	CMakeFiles/LinkedListAnimation.dir/main.cpp.o	a1c6790b1b37638b
+2	488	1716415439975796276	CMakeFiles/LinkedListAnimation.dir/LinkedListAnimation.cpp.o	ff1f115945c6408e
+1	521	1716415440008272710	CMakeFiles/LinkedListAnimation.dir/LinkedList.cpp.o	d6daad29d62f713a
+521	561	1716415440050908536	LinkedListAnimation	b8a8c9864b276e46
+3	520	1716415718535324195	CMakeFiles/LinkedListAnimation.dir/LinkedList.cpp.o	d6daad29d62f713a
+520	561	1716415718579483331	LinkedListAnimation	b8a8c9864b276e46
+3	423	1716415830133544473	CMakeFiles/LinkedListAnimation.dir/LinkedListAnimation.cpp.o	ff1f115945c6408e
+423	460	1716415830173700335	LinkedListAnimation	b8a8c9864b276e46
+3	465	1716416185804720981	CMakeFiles/LinkedListAnimation.dir/LinkedList.cpp.o	d6daad29d62f713a
+465	502	1716416185845057882	LinkedListAnimation	b8a8c9864b276e46
+3	493	1716416336586191176	CMakeFiles/LinkedListAnimation.dir/LinkedList.cpp.o	d6daad29d62f713a
+493	532	1716416336628932833	LinkedListAnimation	b8a8c9864b276e46
