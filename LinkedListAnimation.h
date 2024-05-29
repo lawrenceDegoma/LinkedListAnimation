@@ -6,14 +6,32 @@
 #define LINKEDLISTANIMATION_LINKEDLISTANIMATION_H
 
 #include "LinkedList.h"
+#include "TextBox.h"
+#include "Button.h"
 
 class LinkedListAnimation {
-private:
-    LinkedList list;
-    sf::RenderWindow window;
 public:
-    LinkedListAnimation();
+    LinkedListAnimation(sf::Font& font);
+
     void run();
+
+private:
+    sf::RenderWindow window;
+    LinkedList list;
+    TextBox textBox;
+    Button pushBackButton;
+    Button pushAtPositionButton;
+    Button removeFrontButton;
+    Button pushFrontButton;
+    Button removeBackButton;
+    sf::Font font;
+    bool pushBackActive;
+    bool pushAtPositionActive;
+    bool removeFrontActive;
+
+    void handleEvents();
+    void update(sf::Time deltaTime);
+    void render();
 };
 
 

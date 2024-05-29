@@ -9,7 +9,13 @@ add_executable(LinkedListAnimation main.cpp
         Node.cpp
         Node.h
         LinkedListAnimation.cpp
-        LinkedListAnimation.h)
+        LinkedListAnimation.h
+        TextBox.h
+        TextBox.cpp
+        Cursor.cpp
+        UndoManager.cpp
+        Button.h
+        Button.cpp)
 target_link_libraries(LinkedListAnimation sfml-graphics sfml-audio)
 find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
 file(COPY "arial.ttf" DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

@@ -11,7 +11,7 @@ Cursor::Cursor(unsigned int size)
 
 void Cursor::update(sf::Time deltaTime) {
     blinkTime += deltaTime;
-    if (blinkTime >= sf::seconds(0.5f)) {
+    if (blinkTime >= sf::seconds(5.0f)) {
         visible = !visible;
         blinkTime = sf::Time::Zero;
     }

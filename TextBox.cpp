@@ -1,7 +1,7 @@
 #include "TextBox.h"
 
-TextBox::TextBox(float width, float height)
-        : box(sf::Vector2f(width, height)), maxLength(100), isActive(false),
+TextBox::TextBox(float x, float y, float width, float height, sf::Font& font)
+        : box(sf::Vector2f(width, height)), maxLength(100), active(false),
           cursor(text.getCharacterSize()) {
     if (!font.loadFromFile("arial.ttf")) {
         throw std::runtime_error("Failed to load font file 'arial.ttf'");
@@ -28,9 +28,9 @@ void TextBox::handleEvent(const sf::Event& event) {
         }
     } else if (event.type == sf::Event::MouseButtonPressed) {
         if (box.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
-            isActive = true;
+            active = true;
         } else {
-            isActive = false;
+            active = false;
         }
     }
 }
@@ -42,7 +42,7 @@ void TextBox::update(sf::Time deltaTime) {
 void TextBox::render(sf::RenderWindow& window) {
     window.draw(box);
     window.draw(text);
-    if (isActive) {
+    if (active) {
         cursor.render(window);
     }
 }
@@ -79,4 +79,17 @@ void TextBox::deleteCharacterBeforeCursor() {
         cursor.updatePosition(text.findCharacterPos(cursor.getPosition()));
         undoManager.saveState(content);
     }
+}
+
+void TextBox::clearContent() {
+    content.clear();
+    text.setString("");
+}
+
+std::string TextBox::getContent() const {
+    return content;
+}
+
+bool TextBox::isActive() const {
+    return active;
 }

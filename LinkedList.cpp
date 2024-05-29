@@ -148,7 +148,7 @@ void LinkedList::draw(sf::RenderWindow& window) {
         text.setString(std::to_string(current->data));
         text.setCharacterSize(20);
         text.setFillColor(sf::Color::Black);
-        text.setPosition(spacing + 10.0f, 100.0f + 10.0f);
+        text.setPosition(spacing + 25.0f, 100.0f + 10.0f);
         window.draw(text);
 
         // Draw arrows

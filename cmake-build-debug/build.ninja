@@ -77,6 +77,34 @@ build CMakeFiles/LinkedListAnimation.dir/LinkedListAnimation.cpp.o: CXX_COMPILER
   OBJECT_DIR = CMakeFiles/LinkedListAnimation.dir
   OBJECT_FILE_DIR = CMakeFiles/LinkedListAnimation.dir
 
+build CMakeFiles/LinkedListAnimation.dir/TextBox.cpp.o: CXX_COMPILER__LinkedListAnimation_unscanned_Debug /Users/lawrence/CLionProjects/LinkedListAnimation/TextBox.cpp || cmake_object_order_depends_target_LinkedListAnimation
+  DEP_FILE = CMakeFiles/LinkedListAnimation.dir/TextBox.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/LinkedListAnimation.dir
+  OBJECT_FILE_DIR = CMakeFiles/LinkedListAnimation.dir
+
+build CMakeFiles/LinkedListAnimation.dir/Cursor.cpp.o: CXX_COMPILER__LinkedListAnimation_unscanned_Debug /Users/lawrence/CLionProjects/LinkedListAnimation/Cursor.cpp || cmake_object_order_depends_target_LinkedListAnimation
+  DEP_FILE = CMakeFiles/LinkedListAnimation.dir/Cursor.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/LinkedListAnimation.dir
+  OBJECT_FILE_DIR = CMakeFiles/LinkedListAnimation.dir
+
+build CMakeFiles/LinkedListAnimation.dir/UndoManager.cpp.o: CXX_COMPILER__LinkedListAnimation_unscanned_Debug /Users/lawrence/CLionProjects/LinkedListAnimation/UndoManager.cpp || cmake_object_order_depends_target_LinkedListAnimation
+  DEP_FILE = CMakeFiles/LinkedListAnimation.dir/UndoManager.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/LinkedListAnimation.dir
+  OBJECT_FILE_DIR = CMakeFiles/LinkedListAnimation.dir
+
+build CMakeFiles/LinkedListAnimation.dir/Button.cpp.o: CXX_COMPILER__LinkedListAnimation_unscanned_Debug /Users/lawrence/CLionProjects/LinkedListAnimation/Button.cpp || cmake_object_order_depends_target_LinkedListAnimation
+  DEP_FILE = CMakeFiles/LinkedListAnimation.dir/Button.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/LinkedListAnimation.dir
+  OBJECT_FILE_DIR = CMakeFiles/LinkedListAnimation.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target LinkedListAnimation
@@ -85,7 +113,7 @@ build CMakeFiles/LinkedListAnimation.dir/LinkedListAnimation.cpp.o: CXX_COMPILER
 #############################################
 # Link the executable LinkedListAnimation
 
-build LinkedListAnimation: CXX_EXECUTABLE_LINKER__LinkedListAnimation_Debug CMakeFiles/LinkedListAnimation.dir/main.cpp.o CMakeFiles/LinkedListAnimation.dir/LinkedList.cpp.o CMakeFiles/LinkedListAnimation.dir/Node.cpp.o CMakeFiles/LinkedListAnimation.dir/LinkedListAnimation.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.6.1.dylib /opt/homebrew/lib/libsfml-audio.2.6.1.dylib /opt/homebrew/lib/libsfml-window.2.6.1.dylib /opt/homebrew/lib/libsfml-system.2.6.1.dylib
+build LinkedListAnimation: CXX_EXECUTABLE_LINKER__LinkedListAnimation_Debug CMakeFiles/LinkedListAnimation.dir/main.cpp.o CMakeFiles/LinkedListAnimation.dir/LinkedList.cpp.o CMakeFiles/LinkedListAnimation.dir/Node.cpp.o CMakeFiles/LinkedListAnimation.dir/LinkedListAnimation.cpp.o CMakeFiles/LinkedListAnimation.dir/TextBox.cpp.o CMakeFiles/LinkedListAnimation.dir/Cursor.cpp.o CMakeFiles/LinkedListAnimation.dir/UndoManager.cpp.o CMakeFiles/LinkedListAnimation.dir/Button.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.6.1.dylib /opt/homebrew/lib/libsfml-audio.2.6.1.dylib /opt/homebrew/lib/libsfml-window.2.6.1.dylib /opt/homebrew/lib/libsfml-system.2.6.1.dylib
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  /opt/homebrew/lib/libsfml-graphics.2.6.1.dylib  /opt/homebrew/lib/libsfml-audio.2.6.1.dylib  /opt/homebrew/lib/libsfml-window.2.6.1.dylib  /opt/homebrew/lib/libsfml-system.2.6.1.dylib
   OBJECT_DIR = CMakeFiles/LinkedListAnimation.dir
