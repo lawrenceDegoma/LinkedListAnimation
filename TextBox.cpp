@@ -12,6 +12,11 @@ TextBox::TextBox(float x, float y, float width, float height, sf::Font& font)
     text.setFillColor(sf::Color::Black);
     text.setPosition(5.f, 5.f);
 
+    placeholder.setFont(font);
+    placeholder.setCharacterSize(24);
+    placeholder.setFillColor(sf::Color(200, 200, 200)); // Lighter color for placeholder
+    placeholder.setPosition(5.f, 5.f);
+
     box.setFillColor(sf::Color::White);
     box.setOutlineColor(sf::Color::Black);
     box.setOutlineThickness(2.f);
@@ -19,12 +24,18 @@ TextBox::TextBox(float x, float y, float width, float height, sf::Font& font)
 
 void TextBox::handleEvent(const sf::Event& event) {
     if (event.type == sf::Event::TextEntered) {
-        processInput(event.text.unicode);
+        // Ignore Enter key
+        if (event.text.unicode != '\n' && event.text.unicode != '\r') {
+            processInput(event.text.unicode);
+        }
     } else if (event.type == sf::Event::KeyPressed) {
         if (event.key.code == sf::Keyboard::BackSpace || event.key.code == sf::Keyboard::Delete) {
             deleteCharacterBeforeCursor();
         } else if (event.key.code == sf::Keyboard::Z && (event.key.control || event.key.system)) {
             undo();
+        } else if (event.key.code == sf::Keyboard::Enter) {
+            // Prevent cursor from moving to a new line
+            // Just handle the enter key without deactivating the textbox
         }
     } else if (event.type == sf::Event::MouseButtonPressed) {
         if (box.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
@@ -41,9 +52,13 @@ void TextBox::update(sf::Time deltaTime) {
 
 void TextBox::render(sf::RenderWindow& window) {
     window.draw(box);
-    window.draw(text);
-    if (active) {
-        cursor.render(window);
+    if (content.empty() && !active) {
+        window.draw(placeholder);
+    } else {
+        window.draw(text);
+        if (active) {
+            cursor.render(window);
+        }
     }
 }
 
@@ -92,4 +107,14 @@ std::string TextBox::getContent() const {
 
 bool TextBox::isActive() const {
     return active;
+}
+
+void TextBox::setPlaceholder(const std::string& text) {
+    placeholder.setString(text);
+}
+
+void TextBox::setContent(const std::string& newContent) {
+    content = newContent;
+    text.setString(content);
+    cursor.updatePosition(text.findCharacterPos(content.size()));
 }

@@ -28,6 +28,8 @@ private:
     bool pushBackActive;
     bool pushAtPositionActive;
     bool removeFrontActive;
+    bool isWaitingForPosition;
+    bool pendingValue;
 
     void handleEvents();
     void update(sf::Time deltaTime);

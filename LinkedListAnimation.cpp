@@ -16,7 +16,9 @@ LinkedListAnimation::LinkedListAnimation(sf::Font& font)
           removeBackButton(500.f, 500.f, 150.f, 30.f, font, "Remove Back"),
           pushBackActive(false),
           pushAtPositionActive(false),
-          removeFrontActive(false) {}
+          removeFrontActive(false),
+          isWaitingForPosition(false),
+          pendingValue(0) {}
 
 void LinkedListAnimation::run() {
     while (window.isOpen()) {
@@ -44,13 +46,16 @@ void LinkedListAnimation::handleEvents() {
             list.push_back(value);
             textBox.clearContent();
         }
-        if (pushAtPositionButton.isClicked(window)) {
-            int value, position;
-            std::cout << "Enter value: ";
-            std::cin >> value;
-            std::cout << "Enter position: ";
-            std::cin >> position;
-            list.push_at_position(value, position);
+        if (pushAtPositionButton.isClicked(window) && !isWaitingForPosition) {
+            try {
+                pendingValue = std::stoi(textBox.getContent());
+                isWaitingForPosition = true;
+                textBox.clearContent();
+                textBox.setPlaceholder("Enter position");
+            } catch (std::invalid_argument&) {
+                std::cerr << "Invalid input\n";
+                return;
+            }
         }
         if (removeFrontButton.isClicked(window)) {
             list.removeNodeFromFront();
@@ -72,15 +77,29 @@ void LinkedListAnimation::handleEvents() {
 
         textBox.handleEvent(event);
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter && textBox.isActive()) {
-            int value;
-            try {
-                value = std::stoi(textBox.getContent());
-            } catch (std::invalid_argument&) {
-                std::cerr << "Invalid input\n";
-                return;
+            if (isWaitingForPosition) {
+                int position;
+                try {
+                    position = std::stoi(textBox.getContent());
+                } catch (std::invalid_argument&) {
+                    std::cerr << "Invalid input\n";
+                    return;
+                }
+                list.push_at_position(pendingValue, position);
+                textBox.clearContent();
+                textBox.setPlaceholder("Enter value");
+                isWaitingForPosition = false;
+            } else {
+                int value;
+                try {
+                    value = std::stoi(textBox.getContent());
+                } catch (std::invalid_argument&) {
+                    std::cerr << "Invalid input\n";
+                    return;
+                }
+                list.push_back(value);
+                textBox.clearContent();
             }
-            list.push_back(value);
-            textBox.clearContent();
         }
     }
 }

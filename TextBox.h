@@ -17,10 +17,10 @@ public:
     void handleEvent(const sf::Event& event);
     void update(sf::Time deltaTime);
     void render(sf::RenderWindow& window);
+    void setPlaceholder(const std::string& text);
 
-    void clearContent(); // Clear the content of the text box
-    std::string getContent() const; // Get the content of the text box
-
+    void clearContent();
+    std::string getContent() const;
     bool isActive() const;
 
 private:
@@ -31,12 +31,13 @@ private:
 
     sf::RectangleShape box;
     sf::Text text;
-    sf::Font font;
+    sf::Text placeholder;
     std::string content;
-    UndoManager undoManager;
+    unsigned int maxLength;
     bool active;
     Cursor cursor;
-    unsigned int maxLength;
+    UndoManager undoManager;
+    void setContent(const std::string& content);
 };
 
 #endif //TEXTINPUTBOX_TEXTBOX_H
