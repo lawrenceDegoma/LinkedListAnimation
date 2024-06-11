@@ -148,15 +148,15 @@ void LinkedList::draw(sf::RenderWindow& window) {
         text.setString(std::to_string(current->data));
         text.setCharacterSize(20);
         text.setFillColor(sf::Color::Black);
-        text.setPosition(spacing + 25.0f, 100.0f + 10.0f);
+        text.setPosition(spacing + 25.0f, 110.0f);
         window.draw(text);
 
         // Draw arrows
         if (current->next != nullptr) {
             // Arrow to next node
             sf::VertexArray arrow(sf::Lines, 2);
-            arrow[0].position = sf::Vector2f(spacing + nodeWidth, 125.0f + nodeHeight / 2); // Start point
-            arrow[1].position = sf::Vector2f(spacing + nodeWidth + arrowLength, 125.0f + nodeHeight / 2); // End point
+            arrow[0].position = sf::Vector2f(spacing + nodeWidth, 120.0f); // Start point slightly above middle
+            arrow[1].position = sf::Vector2f(spacing + nodeWidth + arrowLength, 120.0f); // End point
             arrow[0].color = sf::Color::Black;
             arrow[1].color = sf::Color::Black;
             window.draw(arrow);
@@ -164,17 +164,18 @@ void LinkedList::draw(sf::RenderWindow& window) {
             // Draw arrowhead
             sf::ConvexShape arrowHead;
             arrowHead.setPointCount(3);
-            arrowHead.setPoint(0, sf::Vector2f(spacing + nodeWidth + arrowLength - arrowHeadSize, 125.0f + nodeHeight / 2 - arrowHeadSize / 2));
-            arrowHead.setPoint(1, sf::Vector2f(spacing + nodeWidth + arrowLength - arrowHeadSize, 125.0f + nodeHeight / 2 + arrowHeadSize / 2));
-            arrowHead.setPoint(2, sf::Vector2f(spacing + nodeWidth + arrowLength, 125.0f + nodeHeight / 2));
+            arrowHead.setPoint(0, sf::Vector2f(spacing + nodeWidth + arrowLength - arrowHeadSize, 115.0f));
+            arrowHead.setPoint(1, sf::Vector2f(spacing + nodeWidth + arrowLength - arrowHeadSize, 125.0f));
+            arrowHead.setPoint(2, sf::Vector2f(spacing + nodeWidth + arrowLength, 120.0f));
             arrowHead.setFillColor(sf::Color::Black);
             window.draw(arrowHead);
         }
+
         if (current->prev != nullptr) {
             // Arrow to previous node
             sf::VertexArray arrow(sf::Lines, 2);
-            arrow[0].position = sf::Vector2f(spacing - arrowLength, 125.0f + nodeHeight / 2); // Start point
-            arrow[1].position = sf::Vector2f(spacing, 125.0f + nodeHeight / 2); // End point
+            arrow[0].position = sf::Vector2f(spacing - arrowLength, 130.0f); // Start point slightly below middle
+            arrow[1].position = sf::Vector2f(spacing, 130.0f); // End point
             arrow[0].color = sf::Color::Black;
             arrow[1].color = sf::Color::Black;
             window.draw(arrow);
@@ -182,9 +183,9 @@ void LinkedList::draw(sf::RenderWindow& window) {
             // Draw arrowhead
             sf::ConvexShape arrowHead;
             arrowHead.setPointCount(3);
-            arrowHead.setPoint(0, sf::Vector2f(spacing - arrowLength + arrowHeadSize, 125.0f + nodeHeight / 2 - arrowHeadSize / 2));
-            arrowHead.setPoint(1, sf::Vector2f(spacing - arrowLength + arrowHeadSize, 125.0f + nodeHeight / 2 + arrowHeadSize / 2));
-            arrowHead.setPoint(2, sf::Vector2f(spacing - arrowLength, 125.0f + nodeHeight / 2));
+            arrowHead.setPoint(0, sf::Vector2f(spacing - arrowLength + arrowHeadSize, 125.0f));
+            arrowHead.setPoint(1, sf::Vector2f(spacing - arrowLength + arrowHeadSize, 135.0f));
+            arrowHead.setPoint(2, sf::Vector2f(spacing - arrowLength, 130.0f));
             arrowHead.setFillColor(sf::Color::Black);
             window.draw(arrowHead);
         }

@@ -1,0 +1,3 @@
+/Users/lawrence/CLionProjects/LinkedListAnimation/build/CMakeFiles/LinkedListAnimation.dir
+/Users/lawrence/CLionProjects/LinkedListAnimation/build/CMakeFiles/edit_cache.dir
+/Users/lawrence/CLionProjects/LinkedListAnimation/build/CMakeFiles/rebuild_cache.dir
